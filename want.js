@@ -1,5 +1,7 @@
 if (Meteor.isClient) {
 
+  Meteor.subscribe("posts");
+
   Template.want_posts.helpers({
 
   	posts: function () {
@@ -14,14 +16,23 @@ if (Meteor.isClient) {
   		var word = document.getElementsByClassName("form-control")[0].value;
   		var counter = 1;
   		Meteor.call("displayAndAddPost", word, counter);
+      if (pass) {
+        $(".posts_form").hide();
+        $(".posts_index").show();        
+      };
+
   	},
 
   	"keydown input.form-control": function(event) {
   		if (event.which == 13) {
-	   		var word = document.getElementsByClassName("form-control")[0].value
-	  		var counter = 1		
-  			Meteor.call("displayAndAddPost", word, counter)
-			return false;
+        var word = document.getElementsByClassName("form-control")[0].value
+        var counter = 1		
+        Meteor.call("displayAndAddPost", word, counter)
+        if (pass) {
+          $(".posts_form").hide();
+          $(".posts_index").show();        
+        };
+        return false;
   		};
   	}  	
 

@@ -9,23 +9,25 @@ Meteor.methods({
 
 		if (word == "") {
 			console.log("empty")
+			pass = false
 
 		}else if(exist != undefined ){
 			//console.log(exist._id)
 			Posts.update(exist._id, {$inc: {counter: 1}});
-			$(".posts_form").hide();
-			$(".posts_index").show();	
-					
+			pass = true
 		}else{
 			Posts.insert({
 				word: word,
 				counter: counter,
 				createdAt: new Date()
 			});
-			$(".posts_form").hide();
-			$(".posts_index").show();			
+			pass = true
 		}		
 	}
 
 
+});
+
+Meteor.publish("posts", function () {
+	return Posts.find({});
 });
