@@ -13,7 +13,7 @@ if (Meteor.isClient) {
   Template.want_posts.events({
 
   	"click .btn": function() {
-  		var word = document.getElementsByClassName("form-control")[0].value;
+  		var word = document.getElementsByClassName("form-control")[0].value.toLowerCase();
   		var counter = 1;
   		Meteor.call("displayAndAddPost", word, counter);
       if (pass) {
@@ -25,7 +25,7 @@ if (Meteor.isClient) {
 
   	"keydown input.form-control": function(event) {
   		if (event.which == 13) {
-        var word = document.getElementsByClassName("form-control")[0].value
+        var word = document.getElementsByClassName("form-control")[0].value.toLowerCase()
         var counter = 1		
         Meteor.call("displayAndAddPost", word, counter)
         if (pass) {
