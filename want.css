@@ -1,0 +1,9 @@
+/* CSS declarations go here */
+
+.posts_index {
+	display: none;
+}
+
+.question {
+	color: red;
+}
