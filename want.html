@@ -27,7 +27,7 @@
 
 	<div class="posts_index">
 		{{#each posts}}
-			<p>{{word}}</p>
+			<p class="{{#if range1}} range1 {{/if}}{{#if range2}} range2 {{/if}}{{#if range3}} range3 {{/if}}{{#if range4}} range4 {{/if}}{{#if range5}} range5 {{/if}}">{{word}}</p>
 		{{/each}}
 	</div>
 
