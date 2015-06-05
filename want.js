@@ -53,7 +53,13 @@ if (Meteor.isClient) {
   		Meteor.call("displayAndAddPost", word, counter);
       if (pass) {
         $(".posts_form").hide();
-        $(".posts_index").show();        
+        $(".posts_index").show();
+        $(".posts_index p").each(function (i, elt) {
+          $(elt).css({
+            left: Math.random()*150,
+            top: Math.random()*150
+          });  
+        });     
       };
 
   	},
@@ -65,7 +71,13 @@ if (Meteor.isClient) {
         Meteor.call("displayAndAddPost", word, counter)
         if (pass) {
           $(".posts_form").hide();
-          $(".posts_index").show();        
+          $(".posts_index").show(); 
+          $(".posts_index p").each(function (i, elt) {
+            $(elt).css({
+              left: Math.random()*150,
+              top: Math.random()*150
+            });  
+          });                  
         };
         return false;
   		};

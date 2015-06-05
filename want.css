@@ -2,6 +2,11 @@
 
 .posts_index {
 	display: none;
+	position: absolute;
+}
+
+.posts_index p {
+  position: absolute;
 }
 
 .question {
